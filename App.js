@@ -90,10 +90,48 @@ const ITINERARIES = [
 ];
 
 const FEATURES = [
-  { icon: "✈", title: "Seamless Travel", desc: "Book your flight and explore safari ideas in one place." },
-  { icon: "🧭", title: "Travel Experts", desc: "Led by seasoned safari specialists who know East Africa." },
-  { icon: "🦁", title: "Small Safaris", desc: "Intimate group sizes for a more personal experience." },
-  { icon: "📋", title: "Curated Itineraries", desc: "Expertly designed journeys to spark your imagination." },
+  { 
+    icon: (
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C5A059" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M19 17h2M3 17h14M5 14h11l3-7h2l-2 7"/>
+        <path d="M4 17l1 2h16l-1-2"/>
+      </svg>
+    ), 
+    title: "Seamless Journeys", 
+    desc: "Effortlessly combine flight bookings with inspiring safari itineraries." 
+  },
+  { 
+    icon: (
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C5A059" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="7" r="4" />
+        <path d="M5 21v-2a7 7 0 0 1 14 0v2" />
+      </svg>
+    ), 
+    title: "Travel Experts", 
+    desc: "Rely on local knowledge and partners for safe, memorable safaris." 
+  },
+  { 
+    icon: (
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C5A059" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+        <line x1="7" y1="7" x2="7.01" y2="7" />
+        <path d="M11 8l1.5 3 3 .5-2.2 2.2.5 3.3-2.8-1.5-2.8 1.5.5-3.3-2.2-2.2 3-.5z" />
+      </svg>
+    ), 
+    title: "Smart Fares", 
+    desc: "Enjoy exclusive savings and special offers on Tanzania flight bookings." 
+  },
+  { 
+    icon: (
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C5A059" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z" />
+        <path d="M9 3v15" />
+        <path d="M15 6v15" />
+      </svg>
+    ), 
+    title: "Curated Itineraries", 
+    desc: "Hand-picked safari routes showcasing Tanzania’s most iconic destinations." 
+  },
 ];
 
 const GALLERY_IMGS = [
@@ -139,9 +177,9 @@ const BLOG_POSTS = [
 ];
 
 const HERO_BGS = [
-  "https://images.unsplash.com/photo-1549366021-9f761d450615?w=1600&q=90",
-  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=90",
   "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&q=90",
+  "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=90",
+  "https://images.unsplash.com/photo-1549366021-9f761d450615?w=1600&q=90",
   "https://images.unsplash.com/photo-1554990349-170b9e4bdf3b?w=1600&q=90",
 ];
 
@@ -266,41 +304,39 @@ export default function FlyingSafari() {
   const styles = {
     root: { fontFamily: "'Georgia', 'Times New Roman', serif", margin: 0, padding: 0, overflowX: "hidden", backgroundColor: "#fff" },
     // NAV
-    nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, padding: scrolled ? "15px 60px" : "30px 60px", display: "flex", alignItems: "center", justifyContent: "space-between", background: scrolled ? "rgba(255,255,255,0.95)" : "transparent", boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.1)" : "none", transition: "all 0.3s ease", backdropFilter: scrolled ? "blur(10px)" : "none", height: scrolled ? 60 : 100 },
-    logo: { display: "flex", flexDirection: "column", lineHeight: 1, cursor: "pointer", zIndex: 1001 },
-    logoFlying: { fontSize: 11, letterSpacing: 5, color: scrolled ? "#666" : "#fff", fontFamily: "'Arial', sans-serif", textTransform: "uppercase", fontWeight: 400, display: "flex", alignItems: "center", gap: 6, transition: "color 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)" },
-    logoSafari: { fontSize: "clamp(20px, 5vw, 32px)", fontWeight: 700, color: scrolled ? "#3B4A34" : "#fff", fontFamily: "'Georgia', serif", letterSpacing: 2, lineHeight: 1.1, marginTop: 4, transition: "color 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)" },
-    navLinks: { display: "flex", gap: 24, backgroundColor: scrolled ? "transparent" : "rgba(0,0,0,0.2)", borderRadius: 30, padding: "12px 30px", border: scrolled ? "none" : "1px solid rgba(255,255,255,0.2)", backdropFilter: scrolled ? "none" : "blur(4px)", transition: "all 0.3s ease" },
-    navLink: { color: scrolled ? "#333" : "#fff", textDecoration: "none", fontSize: 13, cursor: "pointer", fontFamily: "Arial, sans-serif", fontWeight: 600, transition: "all 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)", padding: "8px 12px" },
+    nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, padding: "20px 60px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "transparent", transition: "all 0.3s ease", height: 90 },
+    logo: { display: "flex", flexDirection: "column", cursor: "pointer", zIndex: 1001, position: "relative", minWidth: 150 },
+    logoPlaneWrap: { position: "absolute", top: -15, left: -10, width: 80, height: 40 },
+    logoFlying: { fontSize: 16, color: "#fff", textTransform: "uppercase", letterSpacing: 8, fontWeight: 400, fontFamily: "'Georgia', serif", marginLeft: 15, marginBottom: -5 },
+    logoSafari: { fontSize: 42, color: "#fff", textTransform: "uppercase", fontWeight: 700, fontFamily: "'Georgia', serif", letterSpacing: 2, lineHeight: 1 },
+    navLinks: { display: "flex", gap: 30, backgroundColor: "rgba(0,0,0,0.4)", borderRadius: 40, padding: "12px 40px", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.1)" },
+    navLink: { color: "#fff", textDecoration: "none", fontSize: 14, cursor: "pointer", fontFamily: "Arial, sans-serif", fontWeight: 700, transition: "all 0.3s ease", padding: "4px 10px" },
     // HERO
-    hero: { position: "relative", height: "100vh", minHeight: 700, overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "center" },
-    heroBg: { position: "absolute", inset: 0, backgroundSize: "cover", backgroundPosition: "center", filter: "brightness(0.9)", transition: "opacity 1.5s ease-in-out" },
-    heroOverlay: { position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 20%), linear-gradient(to right, rgba(0,0,0,0.5) 0%, transparent 100%)" },
-    heroContent: { position: "relative", zIndex: 2, padding: "0 60px", maxWidth: 900 },
-    heroH1: { fontSize: "clamp(36px,5vw,56px)", fontWeight: 500, color: "#fff", lineHeight: 1.3, fontFamily: "Georgia, serif" },
-    cursive: { fontFamily: "'Caveat', cursive, 'Brush Script MT'", fontWeight: 700, fontSize: "1.2em", fontStyle: "italic" },
-    heroNext: { position: "absolute", right: 0, top: "45%", color: "#fff", display: "flex", alignItems: "center", gap: 15, fontSize: 14, fontFamily: "Arial, sans-serif", fontWeight: 600, zIndex: 2 },
-    nextLine: { width: 80, height: 1, backgroundColor: "#fff" },
+    hero: { position: "relative", height: "100vh", minHeight: 850, overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "flex-start", paddingTop: 160 },
+    heroBg: { position: "absolute", inset: 0, backgroundSize: "cover", backgroundPosition: "center", filter: "brightness(0.85)", transition: "opacity 1.5s ease-in-out" },
+    heroOverlay: { position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 40%), linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 100%)" },
+    heroContent: { position: "relative", zIndex: 2, padding: "0 100px", maxWidth: 1400 },
+    heroH1: { fontSize: "clamp(48px, 6vw, 72px)", fontWeight: 400, color: "#fff", lineHeight: 1.2, fontFamily: "Arial, sans-serif", textAlign: "left", textShadow: "0 4px 15px rgba(0,0,0,0.4)" },
+    cursive: { fontFamily: "'Caveat', cursive", fontWeight: 700, fontSize: "1.1em", color: "#fff" },
     // BOOKING WIDGET
     bookingWidget: { position: "absolute", bottom: 0, left: "5%", right: "5%", zIndex: 50, maxWidth: 1200, margin: "0 auto" },
-    tabsRow: { display: "flex" },
-    tab: { padding: "16px 30px", fontSize: 14, fontWeight: 600, fontFamily: "Arial, sans-serif", cursor: "pointer", display: "flex", alignItems: "center", gap: 10, borderTopLeftRadius: 8, borderTopRightRadius: 8 },
+    tabsRow: { display: "flex", backgroundColor: "#EFEFEF", borderTopLeftRadius: 12, borderTopRightRadius: 12, overflow: "hidden" },
+    tab: { padding: "16px 28px", fontSize: 15, cursor: "pointer", display: "flex", alignItems: "center", gap: 12, transition: "all 0.2s", fontWeight: 700, fontFamily: "Georgia, serif" },
     tabActive: { backgroundColor: "#fff", color: "#4A5D3F" },
-    tabInactive: { backgroundColor: "rgba(245,245,245,0.9)", color: "#555" },
-    bookingContent: { backgroundColor: "#fff", padding: "30px", borderTopRightRadius: 8, borderBottomLeftRadius: 8, borderBottomRightRadius: 8 },
+    tabInactive: { backgroundColor: "#EFEFEF", color: "#666" },
+    tabsContainerInactive: { display: "flex", flex: 1 },
+    bookingContent: { backgroundColor: "#fff", padding: "24px", borderBottomLeftRadius: 12, borderBottomRightRadius: 12 },
     tripTypes: { display: "flex", gap: 10, marginBottom: 20 },
     tripTypeBtn: { padding: "10px 24px", borderRadius: 4, fontSize: 14, fontFamily: "Arial, sans-serif", cursor: "pointer", border: "none", fontWeight: 600 },
     tripTypeActive: { backgroundColor: "#4A5D3F", color: "#fff" },
-    tripTypeInactive: { backgroundColor: "#F5F5F5", color: "#555" },
-    inputsRow: { display: "flex", gap: 10, marginBottom: 24, position: "relative" },
-    inputGroup: { flex: 1, backgroundColor: "#F5F5F5", borderRadius: 4, padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" },
-    input: { border: "none", background: "transparent", width: "100%", fontSize: 12, color: "#333", outline: "none", fontFamily: "Arial, sans-serif", fontWeight: 600 },
-    iconBtn: { width: 34, height: 34, borderRadius: "50%", backgroundColor: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 10px rgba(0,0,0,0.1)", margin: "0 -22px", zIndex: 2, cursor: "pointer", position: "relative" },
-    bottomRow: { display: "flex", justifyContent: "space-between", alignItems: "center" },
-    couponText: { color: "#888", fontSize: 13, fontFamily: "Arial, sans-serif", display: "flex", alignItems: "center", gap: 8 },
-    searchFlightBtn: { backgroundColor: "#4A5D3F", color: "#fff", border: "none", borderRadius: 4, padding: "14px 32px", fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "Arial, sans-serif" },
+    inputsRow: { display: "flex", gap: 10, marginBottom: 24, alignItems: "center" },
+    inputGroup: { flex: 1, backgroundColor: "#F2F2F2", borderRadius: 4, padding: "14px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", minHeight: 52 },
+    input: { border: "none", background: "transparent", width: "100%", fontSize: 13, color: "#999", outline: "none", fontFamily: "Arial, sans-serif", fontWeight: 700 },
+    iconBtn: { width: 34, height: 34, borderRadius: "50%", backgroundColor: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.05)", cursor: "pointer", flexShrink: 0, margin: "0 -5px", zIndex: 2 },
+    bottomRow: { display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 20 },
+    couponText: { color: "#666", fontSize: 15, fontFamily: "Georgia, serif", display: "flex", alignItems: "center", gap: 12 },
+    searchFlightBtn: { backgroundColor: "#4D5645", color: "#fff", border: "none", borderRadius: 4, padding: "14px 44px", fontSize: 18, fontWeight: 500, cursor: "pointer", fontFamily: "Georgia, serif" },
     // DESTINATIONS
-    destSection: { padding: "80px 40px", backgroundColor: "#FAF7F2" },
     sectionLabel: { fontSize: 13, letterSpacing: 2, color: "#D2AB66", textTransform: "uppercase", fontFamily: "Georgia, serif", marginBottom: 8 },
     destGrid: { display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 },
     destCard: { position: "relative", borderRadius: 6, overflow: "hidden", cursor: "pointer", height: 130 },
@@ -326,11 +362,12 @@ export default function FlyingSafari() {
     arrowBtn: { border: "none", background: "transparent", cursor: "pointer", fontSize: 40, color: "rgba(255,255,255,0.7)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 100, minHeight: 44, minWidth: 44 },
     viewItinBtn: { backgroundColor: "transparent", color: "#666", border: "1px solid #ccc", borderRadius: 2, padding: "12px 24px", fontSize: 11, letterSpacing: 1, textTransform: "uppercase", cursor: "pointer", fontFamily: "Arial, sans-serif", transition: "all 0.3s", fontWeight: 600 },
     // FEATURES ROW
-    featuresSection: { backgroundColor: "#F9F5EE", padding: "50px 60px", display: "flex", gap: 40, justifyContent: "space-around" },
-    featureItem: { display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: 200 },
-    featureIcon: { width: 64, height: 64, borderRadius: "50%", border: "2px solid #C8A96E", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, marginBottom: 14 },
-    featureTitle: { fontSize: 14, fontWeight: 600, color: "#1A0A02", fontFamily: "Arial, sans-serif", marginBottom: 6 },
-    featureDesc: { fontSize: 12, color: "#888", fontFamily: "Arial, sans-serif", lineHeight: 1.6 },
+    featuresSection: { backgroundColor: "#FDF8F1", backgroundImage: "url('https://www.transparenttextures.com/patterns/p6-polka.png'), linear-gradient(to bottom, #FDF8F1, #F9F2E7)", padding: "100px 60px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 30 },
+    featureItem: { display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" },
+    featureIconWrap: { position: "relative", marginBottom: 32, display: "flex", flexDirection: "column", alignItems: "center" },
+    featureIconShadow: { width: 60, height: 12, backgroundColor: "rgba(197,160,89,0.12)", borderRadius: "50%", marginTop: 8, filter: "blur(2px)" },
+    featureTitle: { fontSize: 20, fontWeight: 500, color: "#333", fontFamily: "Georgia, serif", marginBottom: 14, letterSpacing: "0.2px" },
+    featureDesc: { fontSize: 13, color: "#777", fontFamily: "Arial, sans-serif", lineHeight: 1.6, maxWidth: 240 },
     // GALLERY
     gallerySection: { padding: "60px 40px", backgroundColor: "#fff" },
     galleryWrap: { position: "relative", display: "flex", alignItems: "center", justifyContent: "center", height: 440, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "0 20px" },
@@ -352,9 +389,9 @@ export default function FlyingSafari() {
     // FOOTER
     footer: { background: "linear-gradient(135deg, #4A2B10 0%, #75441A 40%, #8C5420 60%, #4A2B10 100%)", color: "#fff", padding: "60px 60px 30px" },
     footerTop: { display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1.2fr", gap: 40, marginBottom: 50, paddingBottom: 40, borderBottom: "1px solid rgba(200,169,110,0.2)" },
-    footerLogo: { display: "flex", flexDirection: "column", marginBottom: 20, cursor: "pointer" },
-    footerLogoFlying: { fontSize: 9, letterSpacing: 5, color: "#C8A96E", textTransform: "uppercase", fontFamily: "Arial, sans-serif" },
-    footerLogoSafari: { fontSize: 22, fontWeight: 700, color: "#fff", fontFamily: "Georgia, serif", letterSpacing: 2 },
+    footerLogo: { display: "flex", flexDirection: "column", marginBottom: 20, cursor: "pointer", position: "relative" },
+    footerLogoFlying: { fontSize: 12, letterSpacing: 6, color: "#C8A96E", textTransform: "uppercase", fontFamily: "Georgia, serif" },
+    footerLogoSafari: { fontSize: 32, fontWeight: 700, color: "#fff", fontFamily: "Georgia, serif", letterSpacing: 2, lineHeight: 1 },
     footerSocial: { display: "flex", gap: 12, marginTop: 20 },
     socialBtn: { width: 32, height: 32, borderRadius: 4, border: "1px solid rgba(200,169,110,0.4)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", fontSize: 14, color: "#C8A96E" },
     footerColTitle: { fontSize: 11, letterSpacing: 3, color: "#C8A96E", textTransform: "uppercase", fontFamily: "Arial, sans-serif", marginBottom: 20, fontWeight: 600 },
@@ -380,29 +417,39 @@ export default function FlyingSafari() {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .nav-link:hover { opacity: 0.7 !important; }
-    .dest-card img:hover { transform: scale(1.05); }
-    .itin-card:hover { transform: translateY(-4px); }
-    .itin-card:hover img { transform: scale(1.03); }
-    .feature-card img { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); filter: brightness(0.85); }
-    .feature-card:hover img { transform: scale(1.08); filter: brightness(0.5); }
-    .feature-card-desc { max-height: 0; opacity: 0; transition: all 0.5s ease; overflow: hidden; margin-top: 0; }
-    .feature-card:hover .feature-card-desc { max-height: 100px; opacity: 1; margin-top: 10px; }
-    .feature-card-overlay { transition: all 0.5s ease; background: linear-gradient(transparent, rgba(0,0,0,0.8)) !important; }
-    .feature-card:hover .feature-card-overlay { background: rgba(0,0,0,0.6) !important; padding-top: 80px !important; }
-    .view-btn:hover { background-color: #546A4D !important; color: #fff !important; }
-    .explore-btn:hover { background-color: #1b2610 !important; }
+    @media (hover: hover) {
+      .nav-link:hover { opacity: 0.7 !important; }
+      .dest-card img:hover { transform: scale(1.05); }
+      .itin-card:hover { transform: translateY(-4px); }
+      .itin-card:hover img { transform: scale(1.03); }
+      .feature-card:hover img { transform: scale(1.08); filter: brightness(0.5); }
+      .feature-card:hover .feature-card-desc { max-height: 100px; opacity: 1; margin-top: 10px; }
+      .feature-card:hover .feature-card-overlay { background: rgba(0,0,0,0.6) !important; padding-top: 80px !important; }
+      .view-btn:hover { background-color: #546A4D !important; color: #fff !important; }
+      .explore-btn:hover { background-color: #1b2610 !important; }
+      .blog-card:hover .blog-card-info { background: #4D5645; }
+      .blog-card:hover .blog-card-title { color: #fff; }
+      .blog-card:hover .blog-card-tag { color: #ddd; }
+      .blog-card:hover img { transform: scale(1.05); }
+      .promo-btn:hover { background: #3a6b1e !important; }
+      .subscribe-btn:hover { background-color: #353d2d !important; }
+    }
     .blog-card-info { background: #FAF7F2; transition: all 0.3s; }
-    .blog-card:hover .blog-card-info { background: #4D5645; }
     .blog-card-title { color: #333; transition: color 0.3s; }
-    .blog-card:hover .blog-card-title { color: #fff; }
     .blog-card-tag { color: #888; transition: color 0.3s; }
-    .blog-card:hover .blog-card-tag { color: #ddd; }
-    .blog-card:hover img { transform: scale(1.05); }
     .blog-img { transition: transform 0.4s; }
-    .promo-btn:hover { background: #3a6b1e !important; }
     .subscribe-input::placeholder { color: #fff; opacity: 1; font-family: 'Georgia', serif; font-weight: 600; letter-spacing: 0.5px; }
     .subscribe-input { caret-color: #fff; }
+    
+    /* Touch Feedback */
+    .nav-link:active, .tab:active, .search-btn:active, .explore-btn:active, .view-btn:active, .promo-btn:active, .social-btn:active {
+      transform: scale(0.96);
+      opacity: 0.8;
+    }
+    .dest-card:active, .itin-card:active, .blog-card:active {
+      transform: scale(0.98);
+    }
+    * { -webkit-tap-highlight-color: transparent; }
 
     /* Hide scrollbar for tabs */
     .tabs-row::-webkit-scrollbar { display: none; }
@@ -445,8 +492,10 @@ export default function FlyingSafari() {
       border-radius: 18px;
     }
 
-    .gallery-wrap img:hover {
-      transform: translateY(-6px);
+    @media (hover: hover) {
+      .gallery-wrap img:hover {
+        transform: translateY(-6px);
+      }
     }
 
     @media (max-width: 768px) {
@@ -462,15 +511,16 @@ export default function FlyingSafari() {
     @media (max-width: 900px) {
       .nav-links { display: none !important; }
       .hamburger { display: flex !important; }
-      .nav { padding: 15px 24px !important; }
+      .nav { padding: 10px 20px !important; height: 80px !important; }
       
-      .hero { min-height: auto !important; height: auto !important; padding-top: 140px; padding-bottom: 80px; }
-      .heroContent { padding: 0 24px !important; text-align: center; margin: 0 auto; z-index: 5 !important; }
-      .hero-h1 { font-size: clamp(28px, 7vw, 42px) !important; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.2 !important; }
-      .heroNext { display: none !important; }
+      .hero { min-height: 100vh !important; padding-top: 80px; padding-bottom: 40px; display: flex; flex-direction: column; justify-content: flex-start; }
+      .heroContent { padding: 0 20px !important; margin-top: 100px !important; text-align: left !important; }
+      .hero-h1 { font-size: 28px !important; line-height: 1.5 !important; text-align: center !important; }
       
-      .booking-widget { position: relative !important; left: 0 !important; right: 0 !important; margin: -40px 20px 40px !important; bottom: auto !important; border-radius: 12px !important; overflow: visible !important; box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important; z-index: 100 !important; }
-      .tabs-row { overflow-x: auto !important; white-space: nowrap !important; flex-wrap: nowrap !important; border-top-left-radius: 12px; border-top-right-radius: 12px; -webkit-overflow-scrolling: touch; }
+      .nav-links { display: none !important; }
+      
+      .booking-widget { position: relative !important; left: 0 !important; right: 0 !important; margin: 40px 16px !important; bottom: auto !important; border-radius: 12px !important; overflow: hidden !important; box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important; z-index: 100 !important; }
+      .tabs-row { display: flex !important; background-color: #EFEFEF !important; }
       .tab { flex: 0 0 auto !important; padding: 14px 20px !important; font-size: 13px !important; min-height: 48px !important; display: flex !important; align-items: center !important; }
       .booking-content { padding: 24px 20px !important; border-radius: 0 0 12px 12px !important; }
       .inputs-row { flex-direction: column !important; gap: 12px !important; margin-bottom: 20px !important; }
@@ -509,8 +559,8 @@ export default function FlyingSafari() {
         padding: 8px !important;
       }
       
-      .features-section { flex-wrap: wrap !important; padding: 50px 24px !important; gap: 30px !important; justify-content: center !important; }
-      .feat-item { width: 45% !important; }
+      .features-section { grid-template-columns: 1fr !important; padding: 60px 24px !important; gap: 60px !important; }
+      .feat-item { width: 100% !important; maxWidth: 300px !important; }
       
       .gallery-section { padding: 60px 0 !important; }
       .gallery-section > div:first-child { padding: 0 24px !important; }
@@ -627,10 +677,14 @@ export default function FlyingSafari() {
       {/* NAV */}
       <nav style={styles.nav} className="nav">
         <div style={styles.logo}>
-          <span style={styles.logoFlying}>
-            <span style={{ fontSize: 13 }}>✈</span> FLYING
-          </span>
-          <span style={styles.logoSafari}>SAFARI</span>
+          <div style={styles.logoPlaneWrap}>
+            <svg width="80" height="40" viewBox="0 0 100 50" fill="none">
+              <path d="M10 10l5 3-2 5h4l3-8 4 2-5 12" fill="#fff" transform="rotate(-20 15 15)"/>
+              <path d="M25 15C45 5 80 15 95 35" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" opacity="0.8"/>
+            </svg>
+          </div>
+          <span style={styles.logoFlying}>Flying</span>
+          <span style={styles.logoSafari}>Safari</span>
         </div>
         <div style={styles.navLinks} className="nav-links">
           {NAV_LINKS.map(l => (
@@ -667,18 +721,33 @@ export default function FlyingSafari() {
         {/* BOOKING WIDGET */}
         <div style={styles.bookingWidget} className="booking-widget">
           <div style={styles.tabsRow} className="tabs-row">
-            {["Book Flights", "Find Reservation", "Check-In"].map((tab) => (
-              <div 
-                key={tab} 
-                onClick={() => setActiveTab(tab)}
-                className="tab"
-                style={{ ...styles.tab, ...(activeTab === tab ? styles.tabActive : styles.tabInactive) }}
-              >
-                <span style={{ fontSize: 16, transform: tab === "Book Flights" ? "rotate(-45deg)" : "none", display: "inline-block" }}>
-                  {tab === "Book Flights" ? "✈" : tab === "Find Reservation" ? "📋" : "🎫"}
-                </span> {tab}
-              </div>
-            ))}
+            <div 
+              onClick={() => setActiveTab("Book Flights")}
+              className="tab"
+              style={{ ...styles.tab, ...(activeTab === "Book Flights" ? styles.tabActive : styles.tabInactive) }}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 22.5 7.5 21 9l-3.5 3.5 8.2 1.8M3 19.2h18M4.5 15.5l2-2h9l2 2"/></svg>
+              <span className="tab-label">Book Flights</span>
+            </div>
+            <div style={styles.tabsContainerInactive}>
+              {["Find Reservation", "Check-In"].map((tab) => (
+                <div 
+                  key={tab} 
+                  onClick={() => setActiveTab(tab)}
+                  className="tab"
+                  style={{ ...styles.tab, ...(activeTab === tab ? styles.tabActive : styles.tabInactive) }}
+                >
+                  <span style={{ fontSize: 20 }}>
+                    {tab === "Find Reservation" ? (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+                    ) : (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M15 5l-2 2-2-2M12 7v8M5 18h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2zM9 18v2M15 18v2"/></svg>
+                    )}
+                  </span>
+                  <span className="tab-label">{tab}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div style={styles.bookingContent}>
             {activeTab === "Book Flights" && (
@@ -698,17 +767,19 @@ export default function FlyingSafari() {
                   <div style={styles.inputGroup} className="input-group">
                     <input style={styles.input} placeholder="FROM" value={flightFrom} onChange={e => setFlightFrom(e.target.value)} />
                   </div>
-                  <div style={styles.iconBtn} className="iconBtn" onClick={handleSwap}>⇄</div>
+                  <div style={styles.iconBtn} className="iconBtn" onClick={handleSwap}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2"><path d="M21 12a9 9 0 11-9-9c2.5 0 4.7.9 6.4 2.4L21 8M21 3v5h-5"/></svg>
+                  </div>
                   <div style={{ ...styles.inputGroup, paddingLeft: 30 }} className="input-group">
                     <input style={styles.input} placeholder="TO" value={flightTo} onChange={e => setFlightTo(e.target.value)} />
                   </div>
                   <div style={styles.inputGroup} className="input-group">
                     <input style={styles.input} placeholder="DEPART DATE" type="text" onFocus={(e) => (e.target.type = "date")} onBlur={(e) => (e.target.type = "text")} value={departDate} onChange={e => setDepartDate(e.target.value)} />
-                    <span style={{ color: "#aaa" }}>📅</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                   </div>
                   <div style={styles.inputGroup} className="input-group">
                     <input style={styles.input} placeholder="RETURN DATE" type="text" onFocus={(e) => (e.target.type = "date")} onBlur={(e) => (e.target.type = "text")} value={returnDate} onChange={e => setReturnDate(e.target.value)} disabled={tripType === "One way"} />
-                    <span style={{ color: "#aaa", opacity: tripType === "One way" ? 0.3 : 1 }}>📅</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="1.5" style={{ opacity: tripType === "One way" ? 0.3 : 1 }}><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                   </div>
                   <div style={{ ...styles.inputGroup, cursor: "pointer" }} className="input-group" onClick={() => setPassengerCount(prev => prev < 9 ? prev + 1 : 1)}>
                     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -720,14 +791,8 @@ export default function FlyingSafari() {
                 </div>
                 <div style={styles.bottomRow} className="bottomRow">
                   <div style={styles.couponText} className="coupon-text">
-                    <span style={{ fontSize: 16, transform: "rotate(-45deg)", display: "inline-block" }}>🎫</span> 
-                    <input 
-                      type="text" 
-                      placeholder="Have a coupon code? Enter it here" 
-                      value={couponCode} 
-                      onChange={e => setCouponCode(e.target.value)} 
-                      style={{ border: "none", outline: "none", fontSize: 13, background: "transparent", color: "#555", width: 250 }}
-                    />
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="1.5"><path d="M15 5l-2 2-2-2M12 7v8M5 18h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2zM9 18v2M15 18v2"/></svg> 
+                    <span>Have a coupon code? Enter it here</span>
                   </div>
                   <button style={styles.searchFlightBtn} className="search-btn" onClick={handleSearchFlight}>
                     Search flights
@@ -851,8 +916,9 @@ export default function FlyingSafari() {
               key={i} 
               style={styles.itinCard} 
               className="itin-card"
-              onMouseEnter={() => setHoveredItin(i)}
+              onMouseEnter={() => { if (window.matchMedia("(hover: hover)").matches) setHoveredItin(i); }}
               onMouseLeave={() => setHoveredItin(null)}
+              onClick={() => showToast(`Booking inquiry for: ${it.title}`)}
             >
               <div style={{ position: "relative" }}>
                 <img src={hoveredItin === i ? it.images[itinImgIdx] : it.images[0]} alt={it.title} style={{ ...styles.itinImg, transition: "all 0.3s ease" }} />
@@ -873,7 +939,7 @@ export default function FlyingSafari() {
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M10 22l1-6l4-2l-1-7"/><path d="M16 12l-2-2"/><path d="M8 12l2-2"/></svg>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2"/><path d="M10 2v2"/><path d="M14 2v2"/></svg>
                 </div>
-                <button style={styles.viewItinBtn} className="view-btn" onClick={() => showToast(`Booking inquiry for: ${it.title}`)}>VIEW ITINERARY</button>
+                <button style={styles.viewItinBtn} className="view-btn">VIEW ITINERARY</button>
               </div>
             </div>
           ))}
@@ -898,7 +964,10 @@ export default function FlyingSafari() {
       <section style={styles.featuresSection} className="features-section">
         {FEATURES.map((f, i) => (
           <div key={i} style={styles.featureItem} className="feat-item">
-            <div style={styles.featureIcon}>{f.icon}</div>
+            <div style={styles.featureIconWrap}>
+              {f.icon}
+              <div style={styles.featureIconShadow} />
+            </div>
             <div style={styles.featureTitle}>{f.title}</div>
             <div style={styles.featureDesc}>{f.desc}</div>
           </div>
@@ -925,7 +994,8 @@ export default function FlyingSafari() {
                 key={i}
                 src={GALLERY_IMGS[idx]}
                 alt=""
-                style={{ width: item.width, height: item.height, objectFit: "cover", margin: "0 -2%", zIndex: item.z, position: "relative", boxShadow: "0 10px 30px rgba(0,0,0,0.2)", transition: "all 0.4s ease-in-out", borderRadius: 16 }}
+                onClick={() => showToast("Expanding gallery...")}
+                style={{ width: item.width, height: item.height, objectFit: "cover", margin: "0 -2%", zIndex: item.z, position: "relative", boxShadow: "0 10px 30px rgba(0,0,0,0.2)", transition: "all 0.4s ease-in-out", borderRadius: 16, cursor: "pointer" }}
               />
             );
           })}
@@ -1006,7 +1076,7 @@ export default function FlyingSafari() {
           <p style={{ color: "#fff", fontSize: 20, fontFamily: "Georgia, serif", marginBottom: 24, fontWeight: 600, letterSpacing: 0.5, textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}>Subscribe for latest update & offers</p>
           <div style={{ display: "flex", background: "rgba(255,255,255,0.25)", borderRadius: 40, padding: "8px 8px 8px 30px", backdropFilter: "blur(12px)", width: 560, maxWidth: "90vw", border: "1px solid rgba(255,255,255,0.5)", alignItems: "center", boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }} className="subscribe-box">
             <input type="email" placeholder="Your Email Address" value={email} onChange={e => setEmail(e.target.value)} style={{ flex: 1, background: "transparent", border: "none", color: "#fff", fontSize: 15, outline: "none", fontFamily: "Georgia, serif", fontWeight: 600 }} className="subscribe-input" />
-            <button style={{ backgroundColor: "#47513C", color: "#fff", border: "none", borderRadius: 30, padding: "14px 36px", fontSize: 14, cursor: "pointer", fontFamily: "Georgia, serif", fontWeight: 700, letterSpacing: 1, transition: "background-color 0.3s ease", boxShadow: "0 4px 10px rgba(0,0,0,0.15)" }} className="subscribe-btn" onClick={handleSubscribe} onMouseOver={(e) => e.target.style.backgroundColor = "#353d2d"} onMouseOut={(e) => e.target.style.backgroundColor = "#47513C"}>Subscribe</button>
+            <button style={{ backgroundColor: "#47513C", color: "#fff", border: "none", borderRadius: 30, padding: "14px 36px", fontSize: 14, cursor: "pointer", fontFamily: "Georgia, serif", fontWeight: 700, letterSpacing: 1, transition: "background-color 0.3s ease", boxShadow: "0 4px 10px rgba(0,0,0,0.15)" }} className="subscribe-btn" onClick={handleSubscribe}>Subscribe</button>
           </div>
         </div>
       </section>
@@ -1015,9 +1085,15 @@ export default function FlyingSafari() {
       <footer id="footer-section" style={styles.footer} className="footer">
         <div style={styles.footerTop} className="footer-top">
           <div>
-            <div style={styles.footerLogo} onClick={() => scrollToSection("about-section")}>
-              <span style={styles.footerLogoFlying}>✦ Flying</span>
-              <span style={styles.footerLogoSafari}>SAFARI</span>
+            <div style={styles.footerLogo} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+              <div style={{ position: "absolute", top: -20, left: -10, width: 60, height: 30, opacity: 0.6 }}>
+                <svg width="60" height="30" viewBox="0 0 100 50" fill="none">
+                  <path d="M10 10l5 3-2 5h4l3-8 4 2-5 12" fill="#C8A96E" transform="rotate(-20 15 15)"/>
+                  <path d="M25 15C45 5 80 15 95 35" stroke="#C8A96E" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <span style={styles.footerLogoFlying}>Flying</span>
+              <span style={styles.footerLogoSafari}>Safari</span>
             </div>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", fontFamily: "Arial, sans-serif", lineHeight: 1.7, maxWidth: 260 }}>
               A Dubai-based company with a strong focus on East Africa Safari. We make flying seamlessly part of your safari adventure.
