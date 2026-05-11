@@ -381,11 +381,11 @@ export default function FlyingSafari() {
     blogTag: { fontSize: 9, letterSpacing: 2, textTransform: "uppercase", fontFamily: "Arial, sans-serif", marginBottom: 12 },
     blogTitle: { fontSize: 16, fontFamily: "Georgia, serif", lineHeight: 1.5, margin: 0 },
     // BIG TEXT SECTION
-    bigTextSection: { position: "relative", height: 600, overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: 100 },
+    bigTextSection: { position: "relative", height: 600, display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: 100 },
     bigTextBg: { position: "absolute", inset: 0, backgroundImage: "url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=80')", backgroundSize: "cover", backgroundPosition: "center", filter: "brightness(0.9)" },
     topFade: { position: "absolute", top: 0, left: 0, right: 0, height: 280, background: "linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0.6) 40%, transparent 100%)", zIndex: 4 },
     bottomFade: { position: "absolute", bottom: 0, left: 0, right: 0, height: 200, background: "linear-gradient(to top, #4A2B10 0%, transparent 100%)", zIndex: 4 },
-    bigText: { position: "absolute", top: "30%", left: 0, right: 0, transform: "translateY(-50%)", zIndex: 3, textAlign: "center", fontSize: "clamp(50px,12vw,170px)", fontWeight: 400, color: "#fff", fontFamily: "'Optima', 'Segoe UI', sans-serif", letterSpacing: "0.15em", lineHeight: 1, userSelect: "none", textTransform: "uppercase", whiteSpace: "nowrap" },
+    bigText: { position: "absolute", top: 0, left: 0, right: 0, transform: "translateY(-50%)", zIndex: 10, textAlign: "center", fontSize: "clamp(50px,12vw,170px)", fontWeight: 400, color: "#fff", fontFamily: "'Optima', 'Segoe UI', sans-serif", letterSpacing: "0.15em", lineHeight: 1, userSelect: "none", textTransform: "uppercase", whiteSpace: "nowrap", textShadow: "0 0 20px rgba(0,0,0,0.2)" },
     // FOOTER
     footer: { background: "linear-gradient(135deg, #4A2B10 0%, #75441A 40%, #8C5420 60%, #4A2B10 100%)", color: "#fff", padding: "60px 60px 30px" },
     footerTop: { display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1.2fr", gap: 40, marginBottom: 50, paddingBottom: 40, borderBottom: "1px solid rgba(200,169,110,0.2)" },
@@ -627,8 +627,8 @@ export default function FlyingSafari() {
       .blog-date-badge .blog-date-month { font-size: 13px !important; font-weight: 700 !important; }
       .blog-date-badge .blog-date-day { font-size: 18px !important; font-weight: 700 !important; }
       
-      .big-text-section { padding-bottom: 60px !important; height: auto !important; min-height: 500px !important; }
-      .big-text { font-size: clamp(32px, 12vw, 80px) !important; position: relative !important; transform: none !important; top: auto !important; margin: 40px 0 !important; white-space: normal !important; line-height: 1.2 !important;}
+      .big-text-section { padding-bottom: 60px !important; height: auto !important; min-height: 400px !important; overflow: visible !important; }
+      .big-text { font-size: clamp(32px, 10vw, 60px) !important; position: absolute !important; top: 0 !important; transform: translateY(-50%) !important; left: 0 !important; right: 0 !important; margin: 0 !important; white-space: nowrap !important; line-height: 1 !important; text-align: center !important; z-index: 20 !important; }
       
       .subscribe-box { flex-direction: column !important; width: 100% !important; padding: 16px !important; border-radius: 16px !important; gap: 12px !important; background: rgba(255,255,255,0.15) !important; max-width: 100% !important; }
       .subscribe-input { width: 100% !important; text-align: center !important; margin-bottom: 0 !important; padding: 8px 0 !important; }
