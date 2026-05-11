@@ -271,7 +271,7 @@ export default function FlyingSafari() {
     logoFlying: { fontSize: 11, letterSpacing: 5, color: scrolled ? "#666" : "#fff", fontFamily: "'Arial', sans-serif", textTransform: "uppercase", fontWeight: 400, display: "flex", alignItems: "center", gap: 6, transition: "color 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)" },
     logoSafari: { fontSize: "clamp(20px, 5vw, 32px)", fontWeight: 700, color: scrolled ? "#3B4A34" : "#fff", fontFamily: "'Georgia', serif", letterSpacing: 2, lineHeight: 1.1, marginTop: 4, transition: "color 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)" },
     navLinks: { display: "flex", gap: 24, backgroundColor: scrolled ? "transparent" : "rgba(0,0,0,0.2)", borderRadius: 30, padding: "12px 30px", border: scrolled ? "none" : "1px solid rgba(255,255,255,0.2)", backdropFilter: scrolled ? "none" : "blur(4px)", transition: "all 0.3s ease" },
-    navLink: { color: scrolled ? "#333" : "#fff", textDecoration: "none", fontSize: 13, cursor: "pointer", fontFamily: "Arial, sans-serif", fontWeight: 600, transition: "all 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)" },
+    navLink: { color: scrolled ? "#333" : "#fff", textDecoration: "none", fontSize: 13, cursor: "pointer", fontFamily: "Arial, sans-serif", fontWeight: 600, transition: "all 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)", padding: "8px 12px" },
     // HERO
     hero: { position: "relative", height: "100vh", minHeight: 700, overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "center" },
     heroBg: { position: "absolute", inset: 0, backgroundSize: "cover", backgroundPosition: "center", filter: "brightness(0.9)", transition: "opacity 1.5s ease-in-out" },
@@ -282,7 +282,7 @@ export default function FlyingSafari() {
     heroNext: { position: "absolute", right: 0, top: "45%", color: "#fff", display: "flex", alignItems: "center", gap: 15, fontSize: 14, fontFamily: "Arial, sans-serif", fontWeight: 600, zIndex: 2 },
     nextLine: { width: 80, height: 1, backgroundColor: "#fff" },
     // BOOKING WIDGET
-    bookingWidget: { position: "absolute", bottom: 0, left: "5%", right: "5%", zIndex: 3, maxWidth: 1200, margin: "0 auto" },
+    bookingWidget: { position: "absolute", bottom: 0, left: "5%", right: "5%", zIndex: 50, maxWidth: 1200, margin: "0 auto" },
     tabsRow: { display: "flex" },
     tab: { padding: "16px 30px", fontSize: 14, fontWeight: 600, fontFamily: "Arial, sans-serif", cursor: "pointer", display: "flex", alignItems: "center", gap: 10, borderTopLeftRadius: 8, borderTopRightRadius: 8 },
     tabActive: { backgroundColor: "#fff", color: "#4A5D3F" },
@@ -469,7 +469,7 @@ export default function FlyingSafari() {
       .hero-h1 { font-size: clamp(28px, 7vw, 42px) !important; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.2 !important; }
       .heroNext { display: none !important; }
       
-      .booking-widget { position: relative !important; left: 0 !important; right: 0 !important; margin: -40px 20px 40px !important; bottom: auto !important; border-radius: 12px !important; overflow: visible !important; box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important; }
+      .booking-widget { position: relative !important; left: 0 !important; right: 0 !important; margin: -40px 20px 40px !important; bottom: auto !important; border-radius: 12px !important; overflow: visible !important; box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important; z-index: 100 !important; }
       .tabs-row { overflow-x: auto !important; white-space: nowrap !important; flex-wrap: nowrap !important; border-top-left-radius: 12px; border-top-right-radius: 12px; -webkit-overflow-scrolling: touch; }
       .tab { flex: 0 0 auto !important; padding: 14px 20px !important; font-size: 13px !important; min-height: 48px !important; display: flex !important; align-items: center !important; }
       .booking-content { padding: 24px 20px !important; border-radius: 0 0 12px 12px !important; }
