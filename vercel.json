@@ -1,9 +1,5 @@
 {
-  "version": 2,
-  "public": true,
-  "github": {
-    "silent": true
-  },
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
