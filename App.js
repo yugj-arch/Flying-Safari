@@ -266,10 +266,10 @@ export default function FlyingSafari() {
   const styles = {
     root: { fontFamily: "'Georgia', 'Times New Roman', serif", margin: 0, padding: 0, overflowX: "hidden", backgroundColor: "#fff" },
     // NAV
-    nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, padding: scrolled ? "15px 60px" : "30px 60px", display: "flex", alignItems: "center", justifyContent: "space-between", background: scrolled ? "rgba(255,255,255,0.95)" : "transparent", boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.1)" : "none", transition: "all 0.3s ease", backdropFilter: scrolled ? "blur(10px)" : "none" },
-    logo: { display: "flex", flexDirection: "column", lineHeight: 1, cursor: "pointer" },
+    nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, padding: scrolled ? "15px 60px" : "30px 60px", display: "flex", alignItems: "center", justifyContent: "space-between", background: scrolled ? "rgba(255,255,255,0.95)" : "transparent", boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.1)" : "none", transition: "all 0.3s ease", backdropFilter: scrolled ? "blur(10px)" : "none", height: scrolled ? 60 : 100 },
+    logo: { display: "flex", flexDirection: "column", lineHeight: 1, cursor: "pointer", zIndex: 1001 },
     logoFlying: { fontSize: 11, letterSpacing: 5, color: scrolled ? "#666" : "#fff", fontFamily: "'Arial', sans-serif", textTransform: "uppercase", fontWeight: 400, display: "flex", alignItems: "center", gap: 6, transition: "color 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)" },
-    logoSafari: { fontSize: 32, fontWeight: 700, color: scrolled ? "#3B4A34" : "#fff", fontFamily: "'Georgia', serif", letterSpacing: 2, lineHeight: 1.1, marginTop: 4, transition: "color 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)" },
+    logoSafari: { fontSize: "clamp(20px, 5vw, 32px)", fontWeight: 700, color: scrolled ? "#3B4A34" : "#fff", fontFamily: "'Georgia', serif", letterSpacing: 2, lineHeight: 1.1, marginTop: 4, transition: "color 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)" },
     navLinks: { display: "flex", gap: 24, backgroundColor: scrolled ? "transparent" : "rgba(0,0,0,0.2)", borderRadius: 30, padding: "12px 30px", border: scrolled ? "none" : "1px solid rgba(255,255,255,0.2)", backdropFilter: scrolled ? "none" : "blur(4px)", transition: "all 0.3s ease" },
     navLink: { color: scrolled ? "#333" : "#fff", textDecoration: "none", fontSize: 13, cursor: "pointer", fontFamily: "Arial, sans-serif", fontWeight: 600, transition: "all 0.3s ease", textShadow: scrolled ? "none" : "0 2px 4px rgba(0,0,0,0.3)" },
     // HERO
@@ -464,17 +464,21 @@ export default function FlyingSafari() {
       .hamburger { display: flex !important; }
       .nav { padding: 15px 24px !important; }
       
-      .hero { min-height: auto !important; height: auto !important; padding-top: 120px; padding-bottom: 60px; }
-      .heroContent { padding: 0 24px !important; text-align: center; margin: 0 auto; }
-      .hero-h1 { font-size: clamp(32px, 8vw, 48px) !important; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+      .hero { min-height: auto !important; height: auto !important; padding-top: 140px; padding-bottom: 80px; }
+      .heroContent { padding: 0 24px !important; text-align: center; margin: 0 auto; z-index: 5 !important; }
+      .hero-h1 { font-size: clamp(28px, 7vw, 42px) !important; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.2 !important; }
       .heroNext { display: none !important; }
       
-      .booking-widget { position: relative !important; left: 0 !important; right: 0 !important; margin: 40px 24px 0 !important; bottom: auto !important; border-radius: 12px !important; overflow: hidden !important; }
-      .tabs-row { overflow-x: auto !important; white-space: nowrap !important; flex-wrap: nowrap !important; border-top-left-radius: 8px; border-top-right-radius: 8px; }
-      .tab { flex: 0 0 auto !important; padding: 14px 16px !important; font-size: 12px !important; min-height: 44px !important; display: flex !important; align-items: center !important; }
-      .booking-content { padding: 20px !important; }
-      .input-group { padding: 12px !important; width: 100% !important; box-sizing: border-box; flex: none !important; min-height: 44px !important; }
-      .search-btn { width: 100% !important; padding: 16px !important; min-height: 48px !important; }
+      .booking-widget { position: relative !important; left: 0 !important; right: 0 !important; margin: -40px 20px 40px !important; bottom: auto !important; border-radius: 12px !important; overflow: visible !important; box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important; }
+      .tabs-row { overflow-x: auto !important; white-space: nowrap !important; flex-wrap: nowrap !important; border-top-left-radius: 12px; border-top-right-radius: 12px; -webkit-overflow-scrolling: touch; }
+      .tab { flex: 0 0 auto !important; padding: 14px 20px !important; font-size: 13px !important; min-height: 48px !important; display: flex !important; align-items: center !important; }
+      .booking-content { padding: 24px 20px !important; border-radius: 0 0 12px 12px !important; }
+      .inputs-row { flex-direction: column !important; gap: 12px !important; margin-bottom: 20px !important; }
+      .input-group { padding: 14px !important; width: 100% !important; box-sizing: border-box; flex: none !important; min-height: 52px !important; }
+      .iconBtn { margin: -10px auto !important; transform: rotate(90deg) !important; width: 36px !important; height: 36px !important; }
+      .bottomRow { flex-direction: column !important; gap: 20px !important; align-items: stretch !important; }
+      .coupon-text { width: 100% !important; justify-content: center !important; }
+      .search-btn { width: 100% !important; padding: 16px !important; min-height: 52px !important; font-size: 16px !important; }
       
       .dest-section { padding: 40px 20px 60px !important; }
       .dest-layout { flex-direction: column !important; gap: 24px !important; }
